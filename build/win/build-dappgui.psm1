@@ -136,7 +136,7 @@ function build-dappgui {
     # npm package
     if ($package) {
         try {
-            Invoke-Scriptblock -ScriptBlock "electron-packager $sourceCodePath --arch=x64 --executableName `"dapp-gui`" --out $artefactPath --overwrite=true" -StderrPrefix "" -ThrowOnError
+            Invoke-Scriptblock -ScriptBlock "electron-packager $sourceCodePath --arch=x64 --executableName `"dapp-gui`" --out $artefactPath --overwrite --platform=win32 --arch=x64 --prune=true --icon=win.ico --version-string.CompanyName=Privatix --version-string.FileDescription=Privatix --version-string.ProductName=\`"Privatix Network\`"" -StderrPrefix "" -ThrowOnError
         }
         catch {Write-Error "Some failures accured during packaging"}
         finally {Set-Location $lastLocation}
